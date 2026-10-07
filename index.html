@@ -1,1 +1,47 @@
-hello
+<html>
+	<head>
+	<style>
+		body {
+			background-color: #171717
+		}
+
+		.center {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 100%
+		}
+	</style>
+	</head>
+	<body>
+		<div class="center">
+			<img src="intro.gif" id="intro-gif">
+
+			<noscript>
+				<br/>
+				<a href="404.html">JavaScript is disabled — fair enough! Since auto-redirect won't work, you'll need to click this link</a>
+			</noscript>
+		</div>
+
+		<script type="text/javascript">
+			document.addEventListener("keydown", function() {
+				window.location.href = "404.html";
+			}, { once: true });
+
+			const intro = document.getElementById("intro-gif");
+
+			function timer() {
+				setTimeout(function() {
+					window.location.href = "404.html";
+				}, 10000);
+			};
+
+			intro.onload = timer;
+
+			if (intro.complete && intro.naturalWidth !== 0) {
+				timer();
+			}
+		</script>
+	</body>
+</html>
